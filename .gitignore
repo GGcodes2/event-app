@@ -1,0 +1,23 @@
+# Node
+node_modules/
+.env
+.env.local
+.env.production
+.env.development
+
+# Build outputs
+dist/
+build/
+.vercel/
+.render/
+.next/
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# OS files
+.DS_Store
+Thumbs.db
