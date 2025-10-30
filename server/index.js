@@ -36,3 +36,8 @@ mongoose
 // ✅ Start server
 const PORT = process.env.PORT || 5001;
 app.listen(PORT, () => console.log(`🚀 Server running on port ${PORT}`));
+
+const allowedOrigins = [
+  "http://localhost:5173",
+  "https://event-app-zeta-two.vercel.app"
+];
