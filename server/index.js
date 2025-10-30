@@ -7,13 +7,25 @@ import eventRoutes from "./routes/events.js";
 dotenv.config();
 const app = express();
 
+// ✅ Allowed Origins (local + deployed frontend)
+const allowedOrigins = [
+  "http://localhost:5173",
+  "https://event-app-zeta-two.vercel.app"
+];
+
 // ✅ Middleware
 app.use(express.json());
 
-// ✅ Allow CORS (frontend access)
+// ✅ Proper CORS setup
 app.use(
   cors({
-    origin: "http://localhost:5173", // frontend URL during local dev
+    origin: function (origin, callback) {
+      if (!origin || allowedOrigins.includes(origin)) {
+        callback(null, true);
+      } else {
+        callback(new Error("Not allowed by CORS"));
+      }
+    },
     methods: ["GET", "POST", "PUT", "DELETE"],
     credentials: true,
   })
@@ -36,21 +48,3 @@ mongoose
 // ✅ Start server
 const PORT = process.env.PORT || 5001;
 app.listen(PORT, () => console.log(`🚀 Server running on port ${PORT}`));
-
-const allowedOrigins = [
-  "http://localhost:5173",
-  "https://event-app-zeta-two.vercel.app"
-];
-
-app.use(
-  cors({
-    origin: function (origin, callback) {
-      if (!origin || allowedOrigins.includes(origin)) {
-        callback(null, true);
-      } else {
-        callback(new Error("Not allowed by CORS"));
-      }
-    },
-    credentials: true,
-  })
-);
