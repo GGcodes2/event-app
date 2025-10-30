@@ -10,7 +10,8 @@ const app = express();
 const allowedOrigins = [
   "http://localhost:5173",
   "https://event-app-zeta-two.vercel.app",
-  "https://event-biqnp25rj-ggcodes2s-projects.vercel.app", // ✅ new frontend
+  "https://event-biqnp25rj-ggcodes2s-projects.vercel.app",
+  "https://event-eahqn7rbn-ggcodes2s-projects.vercel.app/", // ✅ new frontend
 ];
 
 app.use(
