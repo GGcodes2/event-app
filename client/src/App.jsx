@@ -15,7 +15,7 @@ import {
 } from "@mui/material";
 import { Delete, Add, Search } from "@mui/icons-material";
 
-const API_URL = import.meta.env.VITE_API_URL || "http://localhost:5001/api/events";
+const API_URL = "https://event-app-qirx.onrender.com/api/events";
 
 export default function App() {
   const [events, setEvents] = useState([]);

@@ -11,6 +11,11 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
+app.use(cors({
+  origin: ["https://event-app-nine-nu.vercel.app"], // your Vercel site
+  methods: ["GET", "POST", "DELETE"],
+}));
+
 // Routes
 app.use("/api/events", eventRoutes);
 
